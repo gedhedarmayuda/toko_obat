@@ -1,0 +1,147 @@
+{% extends "master/base.html" %}
+
+{% load static %}
+
+{% block title %}
+  Detail Obat
+{% endblock title %}
+
+{% block body %}
+<p class="form-inline my-2 my-lg-0">
+  {% for obat in obats%}
+  <div class="form-outline mb-4">
+    <input
+      type="number"
+      id="no_obat"
+      class="form-control"
+      name="no_obat"
+      value="{{ obat['no_obat'] }}"
+      readonly
+    />
+    <label class="form-label" for="no_obat">Nomor Obat</label>
+  </div>
+
+  <!-- Text input -->
+  <div class="form-outline mb-4">
+    <input
+      type="text"
+      id="nama_obat"
+      class="form-control"
+      name="nama_obat"
+      value="{{ obat['nama_obat'] }}"
+      readonly
+    />
+    <label class="form-label" for="nama_obat">Nama Obat</label>
+  </div>
+
+  <!-- Text input -->
+  <div class="form-outline mb-4">
+    <input
+      type="number"
+      id="harga_jual_obat"
+      class="form-control"
+      name="harga_jual_obat"
+      value="{{ obat.harga_jual_obat }}"
+      readonly
+    />
+    <label class="form-label" for="harga_jual_obat"
+      >Harga Jual Obat</label
+    >
+  </div>
+
+  <!-- Text input -->
+  <div class="form-outline mb-4">
+    <input
+      type="number"
+      id="harga_obat"
+      class="form-control"
+      name="harga_obat"
+      value="{{ obat.harga_obat }}"
+      readonly
+    />
+    <label class="form-label" for="harga_obat">Harga Obat</label>
+  </div>
+
+  <!-- Email input -->
+  <div class="form-outline mb-4">
+    <input
+      type="number"
+      id="stock"
+      class="form-control"
+      name="stock"
+      value="{{ obat.stock }}"
+      readonly
+    />
+    <label class="form-label" for="stock">Stock</label>
+  </div>
+
+  <!-- Email input -->
+  <div class="form-outline mb-4">
+    <input
+      type="text"
+      id="kegunaan_obat"
+      class="form-control"
+      name="kegunaan_obat"
+      value="{{ obat.kegunaan_obat }}"
+      readonly
+    />
+    <label class="form-label" for="kegunaan_obat">Kegunaan Obat</label>
+  </div>
+
+  <div class="form-outline mb-4">
+    <input
+      type="text"
+      id="kadarluarsa"
+      class="form-control"
+      name="kadarluarsa"
+      value="{{ obat.kadarluarsa }}"
+      readonly
+    />
+    <label class="form-label" for="kadarluarsa">Kadarluarsa</label>
+  </div>
+
+  <!-- Email input -->
+  <div class="form-outline mb-4">
+    <input
+      type="text"
+      id="terjual"
+      class="form-control"
+      name="terjual"
+      value="{{ obat.terjual }}"
+      readonly
+    />
+    <label class="form-label" for="terjual">Obat Terjual</label>
+  </div>
+
+  <!-- Email input -->
+  <div class="form-outline mb-4">
+    <input
+      type="text"
+      id="sisa_stock"
+      class="form-control"
+      name="sisa_stock"
+      value="{{ obat.sisa_stock }}"
+      readonly
+    />
+    <label class="form-label" for="sisa_stock">Sisa Stock Obat</label>
+  </div>
+
+  <!-- Email input -->
+  <div class="form-outline mb-4">
+    <input
+      type="text"
+      id="untung"
+      class="form-control"
+      name="untung"
+      value="Rp. {{ obat.untung }}"
+      readonly
+    />
+    <label class="form-label" for="untung">Keuntungan Obat</label>
+  </div>
+  {% endfor %}
+  <!-- Submit button -->
+  <a href="/dashboard" class="btn btn-primary btn-block mb-4">
+    Dashboard
+  </a>
+</p>
+{% endblock body %}

@@ -1,0 +1,77 @@
+{% extends "master/base.html" %}
+
+{% load static %} 
+
+{% block title %}
+ Tambah Obat
+{% endblock title %} 
+
+{% block body %}
+<form action="/add" method="post">
+  <div class="form-outline mb-4">
+    <input type="number" id="no_obat" class="form-control" name="no_obat" />
+    <label class="form-label" for="no_obat">Nomer Obat</label>
+  </div>
+
+  <!-- Text input -->
+  <div class="form-outline mb-4">
+    <input type="text" id="nama_obat" class="form-control" name="nama_obat" />
+    <label class="form-label" for="nama_obat">Nama Obat</label>
+  </div>
+
+  <!-- Harga Jual Obat -->
+  <div class="form-outline mb-4">
+    <input
+      type="number"
+      id="harga_obat"
+      class="form-control"
+      name="harga_obat"
+    />
+    <label class="form-label" for="harga_obat">Harga Obat</label>
+  </div>
+
+  <!-- Harga Jual Obat -->
+  <div class="form-outline mb-4">
+    <input
+      type="number"
+      id="harga_jual_obat"
+      class="form-control"
+      name="harga_jual_obat"
+    />
+    <label class="form-label" for="harga_jual_obat">Harga Jual Obat</label>
+  </div>
+
+  <!-- Kegunaan Obat -->
+  <div class="form-outline mb-4">
+    <input
+      type="text"
+      id="kegunaan_obat"
+      class="form-control"
+      name="kegunaan_obat"
+    />
+    <label class="form-label" for="kegunaan_obat">Kegunaan Obat</label>
+  </div>
+
+  <!--Stock-->
+  <div class="form-outline mb-4">
+    <input type="number" id="stock" class="form-control" name="stock" />
+    <label class="form-label" for="stock">Stock</label>
+  </div>
+
+  <!--Kadarluarsa-->
+  <div class="form-outline mb-4">
+    <input
+      type="text"
+      id="kadarluarsa"
+      class="form-control"
+      name="kadarluarsa"
+    />
+    <label class="form-label" for="kadarluarsa">Kadarluarsa</label>
+  </div>
+
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-primary btn-block mb-4">
+    Tambah Obat
+  </button>
+</form>
+{% endblock body %}

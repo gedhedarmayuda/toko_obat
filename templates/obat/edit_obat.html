@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Obat</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/bootstrap.min.css')}}"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/dashboard">Dashboard</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="/tambah_obat"
+              >Tambah Data Obat <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdownMenuLink"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              {{session['username']}}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="/logout">Logout</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/detail_produk"
+              >Informasi Produk <span class="sr-only">(current)</span></a
+            >
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="/search" method="post">
+          <input
+            class="form-control mr-sm-2"
+            type="text"
+            placeholder="Search"
+            aria-label="Search"
+            id="myInput"
+            name="search"
+          />
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Search
+          </button>
+        </form>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <form action="/update" method="post">
+        {% for obat in obats%}
+        <div class="form-outline mb-4">
+          <input
+            type="number"
+            id="no_obat"
+            class="form-control"
+            name="no_obat"
+            value="{{ obat['no_obat'] }}"
+          />
+          <label class="form-label" for="no_obat">Nomor Obat</label>
+        </div>
+
+        <!-- Text input -->
+        <div class="form-outline mb-4">
+          <input
+            type="text"
+            id="nama_obat"
+            class="form-control"
+            name="nama_obat"
+            value="{{ obat['nama_obat'] }}"
+          />
+          <label class="form-label" for="nama_obat">Nama Obat</label>
+        </div>
+
+        <!-- Text input -->
+        <div class="form-outline mb-4">
+          <input
+            type="number"
+            id="harga_jual_obat"
+            class="form-control"
+            name="harga_jual_obat"
+            value="{{ obat.harga_jual_obat }}"
+          />
+          <label class="form-label" for="harga_jual_obat"
+            >Harga Jual Obat</label
+          >
+        </div>
+
+        <!-- Text input -->
+        <div class="form-outline mb-4">
+          <input
+            type="number"
+            id="harga_obat"
+            class="form-control"
+            name="harga_obat"
+            value="{{ obat.harga_obat }}"
+          />
+          <label class="form-label" for="harga_obat">Harga Obat</label>
+        </div>
+
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+          <input
+            type="number"
+            id="stock"
+            class="form-control"
+            name="stock"
+            value="{{ obat.stock }}"
+          />
+          <label class="form-label" for="stock">Stock</label>
+        </div>
+
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+          <input
+            type="text"
+            id="kegunaan_obat"
+            class="form-control"
+            name="kegunaan_obat"
+            value="{{ obat.kegunaan_obat }}"
+          />
+          <label class="form-label" for="kegunaan_obat">Kegunaan Obat</label>
+        </div>
+
+        <div class="form-outline mb-4">
+          <input
+            type="text"
+            id="kadarluarsa"
+            class="form-control"
+            name="kadarluarsa"
+            value="{{ obat.kadarluarsa }}"
+          />
+          <label class="form-label" for="kadarluarsa">Kadarluarsa</label>
+        </div>
+        {% endfor %}
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">
+          Update Obat
+        </button>
+      </form>
+    </div>
+    <script
+      text="text/javascript"
+      src=" {{ url_for('static', filename='js/jquery-3.3.1.slim.min.js')}} "
+    ></script>
+    <script
+      text="text/javascript"
+      src=" {{ url_for('static', filename='js/popper.min.js')}} "
+    ></script>
+    <script
+      type="text/javascript"
+      src=" {{ url_for('static', filename='js/bootstrap.min.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src=" {{ url_for('static', filename='js/main.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src=" {{url_for('static', filename='js/bootstrap-confirmation.min.js')}}"
+    ></script>
+  </body>
+</html>

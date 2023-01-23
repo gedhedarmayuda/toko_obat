@@ -1,0 +1,7 @@
+#success_message{ display: none;}
+table{
+    border-collapse: collapse;
+}
+tr:nth-child(even){
+    background-color: #dddddd;
+}
