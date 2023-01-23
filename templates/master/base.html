@@ -41,8 +41,8 @@
             Data Obat
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href={% url 'list_obat' %}>List Obat</a>
-              <a class="dropdown-item" href="#">Tambah Obat</a>
+              <a class="dropdown-item" href={% url 'obat:obat_list' %}>List Obat</a>
+              <a class="dropdown-item" href={% url 'obat:obat_create' %}>Tambah Obat</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -58,8 +58,8 @@
             Data Karyawan
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href={% url 'list_karyawan' %}>List Karyawan</a>
-              <a class="dropdown-item" href="#">Tambah Karyawan</a>
+              <a class="dropdown-item" href={% url 'karyawan:karyawan_list' %}>List Karyawan</a>
+              <a class="dropdown-item" href={% url 'karyawan:karyawan_create' %}>Tambah Karyawan</a>
             </div>
           </li>
         </ul>

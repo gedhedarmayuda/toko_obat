@@ -6,7 +6,7 @@ from django.contrib import messages
 
 
 def create_karyawan(request):
-    if request.method == 'POST':
+    if request.POST:
         form = FormKaryawan(request.POST)
         if form.is_valid():
             form.save()
@@ -16,17 +16,17 @@ def create_karyawan(request):
                 'form': form,
             }
             return render(request, 'karyawan/tambah_karyawan.html', karyawan)
-        else:
-            form = FormKaryawan()
-            karyawan = {
-                'form': form
+    else:
+        form = FormKaryawan()
+        karyawan = {
+            'form': form
             }
-            return render(request, 'karyawan/tambah_karyawan.html', karyawan)
+        return render(request, 'karyawan/tambah_karyawan.html', karyawan)
 
 
 def karyawan_list(request):
     karyawan = Karyawan.objects.all()
-    return render(request, "karyawan/tampil_karyawan.html", karyawan)
+    return render(request, "karyawan/list_karyawan.html",{ "karyawans": karyawan,})
 
 
 def update_karyawan(request, no_karyawan):

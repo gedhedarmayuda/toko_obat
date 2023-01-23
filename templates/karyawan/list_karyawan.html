@@ -7,9 +7,10 @@
   <table class="table table-striped table-fixed" id="data">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">Nama Lengkap Karyawan</th>
         <th scope="col">Nomer Karyawan</th>
-        <th scope="col">Phone</th>
+        <th scope="col">Nama Lengkap Karyawan</th>
+        <th class="col">Usia</th>
+        <th scope="col">No Telp</th>
         <th scope="col">Email</th>
         <th scope="col">Tempat Lahir</th>
         <th scope="col">Tanggal Lahir</th>
@@ -19,13 +20,14 @@
     <tbody id="myTable">
       {% for Karyawan in karyawans %}
       <tr>
-        <td>{{ Karyawan.full_name }}</td>
-        <td>{{ Karyawan.emp_code }}</td>
-        <td>{{ Karyawan.phone }}</td>
+        <td>{{ Karyawan.no_karyawan }}</td>
+        <td>{{ Karyawan.nama_lengkap }}</td>
+        <td>{{ Karyawan.usia }}</td>
+        <td>{{ Karyawan.no_telp }}</td>
         <td>{{ Karyawan.email }}</td>
-        <td>{{ Karyawan.birth_place }}</td>
-        <td>{{ Karyawan.birth_day }}</td>
-        <td>{{ Karyawan.position_id_id.title }}</td>
+        <td>{{ Karyawan.tempat_lahir }}</td>
+        <td>{{ Karyawan.tanggal_lahir }}</td>
+        <td>{{ Karyawan.jabatan_id.jabatan }}</td>
       </tr>
       {% endfor %}
     </tbody>
