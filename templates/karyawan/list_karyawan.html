@@ -20,7 +20,7 @@
     <tbody id="myTable">
       {% for Karyawan in karyawans %}
       <tr>
-        <td>{{ Karyawan.no_karyawan }}</td>
+        <td><a href="{% url 'update_karyawan' Karyawan.id %}">{{ Karyawan.no_karyawan }}</a></td>
         <td>{{ Karyawan.nama_lengkap }}</td>
         <td>{{ Karyawan.usia }}</td>
         <td>{{ Karyawan.no_telp }}</td>

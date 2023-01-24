@@ -29,21 +29,21 @@ def karyawan_list(request):
     return render(request, "karyawan/list_karyawan.html",{ "karyawans": karyawan,})
 
 
-def update_karyawan(request, no_karyawan):
-    karyawans = Karyawan.objects.get(no_karyawan=no_karyawan)
+def update_karyawan(request, id):
+    karyawans = Karyawan.objects.get(no_karyawan=id)
     if request.method == 'POST':
         form = FormKaryawan(request.POST, instance=karyawans)
         if form.is_valid():
             form.save()
             messages.success(request, 'Data berhasil diubah')
-            return redirect('ubah_karyawan', no_karyawan=no_karyawan)
-        else:
-            form = FormKaryawan(instance=karyawans)
-            karyawan = {
-                'form': form,
-                'karyawans': karyawans
+            return redirect('ubah_karyawan', no_karyawan=id)
+    else:
+        form = FormKaryawan(instance=karyawans)
+        karyawan = {
+            'form': form,
+            'karyawans': karyawans
             }
-            return render(request, 'karyawan/ubah_karyawan.html', karyawan)
+        return render(request, 'karyawan/ubah_karyawan.html', karyawan)
 
 
 def delete_karyawan(request, no_karyawan):
