@@ -30,20 +30,20 @@ def obat_list(request):
 
 
 def update_obat(request, kode_obat):
-    obats = Obat.objects.get(kode_obat=kode_obat)
+    obats = Obat.objects.get(id=kode_obat)
     if request.method == 'POST':
         form = FormObat(request.POST, instance=obats)
         if form.is_valid():
             form.save()
             messages.success(request, 'Data berhasil diubah')
-            return redirect('update_obat', kode_obat=kode_obat)
-        else:
-            form = FormObat(instance=obats)
-            obat = {
-                'form': form,
-                'obats': obats
+            return redirect('obat:update_obat', kode_obat=kode_obat)
+    else:
+        form = FormObat(instance=obats)
+        obat = {
+            'form': form,
+            'obats': obats
             }
-            return render(request, 'obat/ubah_obat.html', obat)
+        return render(request, 'obat/edit_obat.html', obat)
 
 
 def delete_obat(request, kode_obat):

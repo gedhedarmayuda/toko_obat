@@ -19,7 +19,7 @@
     <tbody id="myTable">
       {% for obat in obats %}
       <tr>
-        <td><a href="{% url 'update_obat' obat.id %}">{{ obat.kode_obat }}</a></td>
+        <td><a href="{% url 'obat:update_obat' obat.id %}">{{ obat.kode_obat }}</a></td>
         <td>{{ obat.nama_obat }}</td>
         <td>{{ obat.supplier }}</td>
         <td>{{ obat.stok }}</td>

@@ -36,14 +36,14 @@ def update_karyawan(request, no_karyawan):
         if form.is_valid():
             form.save()
             messages.success(request, 'Data berhasil diubah')
-            return redirect('karyawan_update', no_karyawan=no_karyawan)
+            return redirect('karyawan:update_karyawan', no_karyawan=no_karyawan)
     else:
         form = FormKaryawan(instance=karyawans)
         karyawan = {
             'form': form,
             'karyawans': karyawans
             }
-        return render(request, 'karyawan/ubah_karyawan.html', karyawan)
+        return render(request, 'karyawan/edit_karyawan.html', karyawan)
 
 
 def delete_karyawan(request, no_karyawan):
