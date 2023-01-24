@@ -13,6 +13,6 @@ urlpatterns = [
     # Jabatan
     path('jabatan_create/', views.create_jabatan, name="jabatan_create"),
     path('jabatan_list/', views.jabatan_list, name='jabatan_list'),
-    re_path(r'^(?P<id>\d+)/jabatan_update/$', views.update_jabatan, name="jabatan_update"),
+    re_path(r'^(?P<no_jabatan>\d+)/jabatan_update/$', views.update_jabatan, name="jabatan_update"),
     re_path(r'^(?P<id>\d+)/jabatan_delete/$', views.delete_jabatan, name="jabatan_delete"),
 ]

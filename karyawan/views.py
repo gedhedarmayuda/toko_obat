@@ -71,9 +71,9 @@ def create_jabatan(request):
     else:
         form = FormJabatan()
         jabatan = {
-            'form': form,
-        }
-        return render(request, 'jabatan/list_jabatan.html', {"jabatans": jabatan, })
+            'form': form
+            }
+        return render(request, 'jabatan/tambah_jabatan.html', jabatan)
 
 
 def jabatan_list(request):
@@ -81,19 +81,19 @@ def jabatan_list(request):
     return render(request, "jabatan/list_jabatan.html", {"jabatans": jabatan, })
 
 
-def update_jabatan(request, id):
-    jabatans = Jabatan.objects.get(id=id)
+def update_jabatan(request, no_jabatan):
+    jabatans = Jabatan.objects.get(id=no_jabatan)
     if request.method == 'POST':
         form = FormJabatan(request.POST, instance=jabatans)
         if form.is_valid():
             form.save()
             messages.success(request, 'Data berhasil diubah')
-            return redirect('karyawan:update_jabatan', id=id)
+            return redirect('karyawan:update_jabatan', no_jabatan=no_jabatan)
     else:
         form = FormJabatan(instance=jabatans)
         jabatan = {
             'form': form,
-            'karyawans': jabatans
+            'jabatans': jabatans
         }
         return render(request, 'jabatan/edit_jabatan.html', jabatan)
 

@@ -14,8 +14,7 @@
         <div class="alert alert-success">{{ message }}</div>
       {% endif %}
     {% endfor %}
-    <h3>Ubah : {{ jabatans.no_jabatan }}</h3>
-    <form action="{% url 'karyawan:update_jabatan' jabatans.id %}" method="post">
+    <form action="{% url 'karyawan:jabatan_update' jabatans.id %}" method="post">
       {% csrf_token %}
       {{form.as_p}}
       <button type="submit" class="btn btn-primary">Simpan</button>

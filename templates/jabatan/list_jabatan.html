@@ -19,8 +19,8 @@
     <tbody id="myTable">
       {% for Jabatan in jabatans %}
       <tr>
-        <td><a href="{% url 'karyawan:jabatan_update' Jabatan.id %}"></a>{{ Jabatan.jabatan }}</td>
-        <td>  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#hapus-{{Jabatan.id}}">
+        <td><a href="{% url 'karyawan:jabatan_update' Jabatan.id %}">{{ Jabatan.jabatan }}</td>
+        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#hapus-{{Jabatan.id}}">
           Hapus
         </button></td>
         <div class="modal" id="hapus-{{Jabatan.id}}">
