@@ -1,13 +1,11 @@
 from django.forms import ModelForm
 from django import forms
-from obat.models import Obat
-
+from obat.models import *
 
 class FormObat(ModelForm):
     class Meta:
         model = Obat
         fields = "__all__"
-
         widgets = {
             'kode_obat': forms.TextInput({'class': 'form-control'}),
             'nama_obat': forms.TextInput({'class': 'form-control'}),
@@ -17,3 +15,11 @@ class FormObat(ModelForm):
             'harga': forms.TextInput({'class': 'form-control'}),
             'jenis_obat_id': forms.Select({'class': 'form-control'}),
         }
+
+class FormFObat(ModelForm):
+    model = Fungsi_Obat
+    fields = "__all__"
+    widgets = {
+        'fungsi_obat': forms.TextInput({'class': 'form-control'}),
+        'keterangan': forms.TextInput({'class': 'form-control'}),
+    }
