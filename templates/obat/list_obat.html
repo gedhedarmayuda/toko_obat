@@ -19,12 +19,12 @@
     <tbody id="myTable">
       {% for obat in obats %}
       <tr>
-        <td>{{ obat.kode_obat }}</td>
+        <td><a href="{% url 'update_obat' obat.id %}">{{ obat.kode_obat }}</a></td>
         <td>{{ obat.nama_obat }}</td>
         <td>{{ obat.supplier }}</td>
         <td>{{ obat.stok }}</td>
-        <td>Rp. {{ obat.terjual }}</td>
-        <td>{{ obat.harga }}</td>
+        <td>{{ obat.terjual }}</td>
+        <td>Rp. {{ obat.harga }}</td>
         <td>{{ obat.jenis_obat_id.fungsi_obat }}</td>
       </tr>
       {% endfor %}

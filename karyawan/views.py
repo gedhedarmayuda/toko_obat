@@ -29,14 +29,14 @@ def karyawan_list(request):
     return render(request, "karyawan/list_karyawan.html",{ "karyawans": karyawan,})
 
 
-def update_karyawan(request, id):
-    karyawans = Karyawan.objects.get(no_karyawan=id)
+def update_karyawan(request, no_karyawan):
+    karyawans = Karyawan.objects.get(id=no_karyawan)
     if request.method == 'POST':
         form = FormKaryawan(request.POST, instance=karyawans)
         if form.is_valid():
             form.save()
             messages.success(request, 'Data berhasil diubah')
-            return redirect('ubah_karyawan', no_karyawan=id)
+            return redirect('karyawan_update', no_karyawan=no_karyawan)
     else:
         form = FormKaryawan(instance=karyawans)
         karyawan = {

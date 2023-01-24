@@ -3,7 +3,7 @@
 {% load static %} 
 
 {% block title %}
- Edit Obat
+ Edit Karyawan
 {% endblock title %} 
 
 {% block body %}
@@ -14,11 +14,12 @@
         <div class="alert alert-success">{{ message }}</div>
       {% endif %}
     {% endfor %}
-    <form action="{% url 'obat:update_obat' obats.id %}" method="post">
+    <h3>Ubah : {{ karyawans.no_karyawan }}</h3>
+    <form action="{% url 'karyawan:update_karyawan' karyawans.id %}" method="post">
       {% csrf_token %}
       {{form.as_p}}
       <button type="submit" class="btn btn-primary">Simpan</button>
-      <a href="{% url 'obat:obat_list' %}" class="btn btn-danger">Kembali</a>
+      <a href="{% url 'karyawan:karyawan_list' %}" class="btn btn-danger">Kembali</a>
     </form>
   </div>
 </div>

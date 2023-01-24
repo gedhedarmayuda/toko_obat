@@ -36,7 +36,7 @@ def update_obat(request, kode_obat):
         if form.is_valid():
             form.save()
             messages.success(request, 'Data berhasil diubah')
-            return redirect('ubah_obat', kode_obat=kode_obat)
+            return redirect('update_obat', kode_obat=kode_obat)
         else:
             form = FormObat(instance=obats)
             obat = {
