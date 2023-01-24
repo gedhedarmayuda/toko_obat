@@ -8,7 +8,7 @@
     <thead class="thead-dark">
       <tr>
         <th scope="col">Nomer Obat</th>
-        <th scope="col">Nama Obat</th>\
+        <th scope="col">Nama Obat</th>
         <th scope="col">Supplier</th>
         <th scope="col">Stock</th>
         <th scope="col">Harga Obat</th>
@@ -22,10 +22,10 @@
         <td>{{ obat.kode_obat }}</td>
         <td>{{ obat.nama_obat }}</td>
         <td>{{ obat.supplier }}</td>
-        <td>{{ obat.stock }}</td>
-        <td>Rp. {{ obat.harga }}</td>
-        <td>{{ obat.kadarluarsa }}</td>
-        <td>{{ obat.jenis_obat_id_id.fungsi_obat }}</td>
+        <td>{{ obat.stok }}</td>
+        <td>Rp. {{ obat.terjual }}</td>
+        <td>{{ obat.harga }}</td>
+        <td>{{ obat.jenis_obat_id.fungsi_obat }}</td>
       </tr>
       {% endfor %}
     </tbody>

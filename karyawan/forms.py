@@ -16,5 +16,5 @@ class FormKaryawan(ModelForm):
             'email': forms.EmailInput({'class': 'form-control'}),
             'tempat_lahir': forms.TextInput({'class': 'form-control'}),
             'tanggal_lahir': forms.TextInput({'class': 'form-control'}),
-            'jabatan_id': forms.TextInput({'class': 'form-control'}),
+            'jabatan_id': forms.Select({'class': 'form-control'}),
         }

@@ -15,5 +15,5 @@ class FormObat(ModelForm):
             'stok': forms.NumberInput({'class': 'form-control'}),
             'terjual': forms.NumberInput({'class': 'form-control'}),
             'harga': forms.TextInput({'class': 'form-control'}),
-            'jenis_obat_id': forms.TextInput({'class': 'form-control'}),
+            'jenis_obat_id': forms.Select({'class': 'form-control'}),
         }

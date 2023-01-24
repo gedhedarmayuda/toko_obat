@@ -4,7 +4,7 @@ from .forms import FormKaryawan
 from django.contrib import messages
 # Create your views here.
 
-
+# Karyawan
 def create_karyawan(request):
     if request.POST:
         form = FormKaryawan(request.POST)

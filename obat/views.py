@@ -6,7 +6,7 @@ from django.contrib import messages
 
 
 def create_obat(request):
-    if request.method == 'POST':
+    if request.POST:
         form = FormObat(request.POST)
         if form.is_valid():
             form.save()
@@ -16,17 +16,17 @@ def create_obat(request):
                 'form': form,
             }
             return render(request, 'obat/tambah_obat.html', obat)
-        else:
-            form = FormObat()
-            obat = {
-                'form': form
+    else:
+        form = FormObat()
+        obat = {
+            'form': form
             }
-            return render(request, 'obat/tambah_obat.html', obat)
+        return render(request, 'obat/tambah_obat.html', obat)
 
 
 def obat_list(request):
     obat = Obat.objects.all()
-    return render(request, "obat/tampil_obat.html", obat)
+    return render(request, "obat/list_obat.html",{ "obats": obat,})
 
 
 def update_obat(request, kode_obat):
