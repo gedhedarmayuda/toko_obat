@@ -48,7 +48,24 @@
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
-              href="list_drug/"
+              href="{% url 'karyawan:jabatan_list' %}"
+              id="navbarDropdownMenuLink"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+            Data Jabatan
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="{% url 'karyawan:jabatan_list' %}">List Jabatan</a>
+              <a class="dropdown-item" href="{% url 'karyawan:jabatan_create' %}">Tambah Jabatan</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="{% url 'karyawan:karyawan_list' %}"
               id="navbarDropdownMenuLink"
               role="button"
               data-toggle="dropdown"

@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from django import forms
-from karyawan.models import Karyawan
+from karyawan.models import *
 
 
 class FormKaryawan(ModelForm):
@@ -17,4 +17,13 @@ class FormKaryawan(ModelForm):
             'tempat_lahir': forms.TextInput({'class': 'form-control'}),
             'tanggal_lahir': forms.TextInput({'class': 'form-control'}),
             'jabatan_id': forms.Select({'class': 'form-control'}),
+        }
+
+class FormJabatan(ModelForm):
+    class Meta:
+        Model = Jabatan
+        fields = "__all__"
+        
+        widget = {
+            'jabatan': forms.TextInput({'class': 'form-control'}),
         }

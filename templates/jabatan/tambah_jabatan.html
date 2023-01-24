@@ -1,0 +1,25 @@
+{% extends "master/base.html" %}
+
+{% load static %} 
+
+{% block title %}
+ Tambah Karyawan
+{% endblock title %} 
+
+{% block body %}
+<div class="row">
+  <div class="col-md-2">
+    {% for message in messages %}
+      {% if message %}
+        <div class="alert alert-success">{{ message }}</div>
+      {% endif %}
+    {% endfor %}
+    <form action="{% url 'karyawan:karyawan_create' %}" method="post">
+      {% csrf_token %}
+      {{form.as_p}}
+      <button type="submit" class="btn btn-primary">Simpan</button>
+      <a href="{% url 'karyawan:karyawan_list' %}" class="btn btn-danger">Kembali</a>
+    </form>
+  </div>
+</div>
+{% endblock body %}

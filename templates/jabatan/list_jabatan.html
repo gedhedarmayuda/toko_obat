@@ -1,0 +1,56 @@
+{% extends "master/base.html" %}
+{% load static %}
+{% block title %}List Karyawan{% endblock title %}
+{% block body %}
+<br />
+{% for message in messages %}
+{% if message %}
+  <div class="alert alert-success">{{ message }}</div>
+{% endif %}
+{% endfor %}
+<div class="table-responsive">
+  <table class="table table-striped table-fixed" id="data">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Jabatan</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody id="myTable">
+      {% for Jabatan in jabatans %}
+      <tr>
+        <td><a href="{% url 'karyawan:update_jabatan' Jabatan.id %}">{{ Jabatan.id }}</a></td>
+        <td>{{ Jabatan.jabatan }}</td>
+        <td>  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#hapus-{{Jabatan.id}}">
+          Hapus
+        </button></td>
+        <div class="modal" id="hapus-{{Jabatan.id}}">
+          <div class="modal-dialog">
+            <div class="modal-content">
+            
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Yakin akan dihapus?</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+              </div>
+              
+              <!-- Modal body -->
+              <div class="modal-body">
+                Nama Jabatan : {{Jabatan.jabatan}}
+              </div>
+              
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Batal</button>
+                <a href="{% url 'karyawan:delete_jabatan' Jabatan.id %}" class="btn btn-danger">Hapus</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock body %}
