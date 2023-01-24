@@ -81,14 +81,14 @@ def jabatan_list(request):
     return render(request, "jabatan/list_jabatan.html", {"jabatans": jabatan, })
 
 
-def update_jabatan(request, no_jabatan):
-    jabatans = Jabatan.objects.get(id=no_jabatan)
+def update_jabatan(request, id):
+    jabatans = Jabatan.objects.get(id=id)
     if request.method == 'POST':
         form = FormJabatan(request.POST, instance=jabatans)
         if form.is_valid():
             form.save()
             messages.success(request, 'Data berhasil diubah')
-            return redirect('karyawan:update_jabatan', no_jabatan=no_jabatan)
+            return redirect('karyawan:update_jabatan', id=id)
     else:
         form = FormJabatan(instance=jabatans)
         jabatan = {
@@ -98,8 +98,8 @@ def update_jabatan(request, no_jabatan):
         return render(request, 'jabatan/edit_jabatan.html', jabatan)
 
 
-def delete_jabatan(request, no_jabatan):
-    jabatans = Karyawan.objects.filter(id=no_jabatan)
+def delete_jabatan(request, id):
+    jabatans = Karyawan.objects.filter(id=id)
     jabatans.delete()
     messages.success(request, "Data terhapus")
     return render(request, 'jabatan/list_jabatan.html')

@@ -21,9 +21,9 @@ class FormKaryawan(ModelForm):
 
 class FormJabatan(ModelForm):
     class Meta:
-        Model = Jabatan
+        model = Jabatan
         fields = "__all__"
         
-        widget = {
+        widgets = {
             'jabatan': forms.TextInput({'class': 'form-control'}),
         }
