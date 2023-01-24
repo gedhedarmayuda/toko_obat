@@ -47,7 +47,7 @@ def update_karyawan(request, no_karyawan):
 
 
 def delete_karyawan(request, no_karyawan):
-    karyawans = Karyawan.objects.filter(no_karyawan=no_karyawan)
+    karyawans = Karyawan.objects.filter(id=no_karyawan)
     karyawans.delete()
     messages.success(request, "Data terhapus")
     return render(request, 'karyawan/tampil_karyawan.html')

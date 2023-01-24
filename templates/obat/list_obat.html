@@ -3,6 +3,11 @@
 {% block title %}List Obat{% endblock title %}
 {% block body %}
 <br />
+{% for message in messages %}
+{% if message %}
+  <div class="alert alert-success">{{ message }}</div>
+{% endif %}
+{% endfor %}
 <div class="table-responsive">
   <table class="table table-striped table-fixed" id="data">
     <thead class="thead-dark">
@@ -27,23 +32,30 @@
         <td>{{ obat.terjual }}</td>
         <td>Rp. {{ obat.harga }}</td>
         <td>{{ obat.jenis_obat_id.fungsi_obat }}</td>
-        <td><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapus-{{obat.id}}">
+        <td>  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#hapus-{{obat.id}}">
           Hapus
         </button></td>
-        <div class="modal fade" id="hapus-{{obat.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
+        <div class="modal" id="hapus-{{obat.id}}">
+          <div class="modal-dialog">
             <div class="modal-content">
+            
+              <!-- Modal Header -->
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Yakin akan dihapus?</h5>
+                <h4 class="modal-title">Yakin akan dihapus?</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
               </div>
+              
+              <!-- Modal body -->
               <div class="modal-body">
-                Nama Barang : {{ obat.nama_obat}}
+                Nama Obat : {{obat.nama_obat}}
               </div>
+              
+              <!-- Modal footer -->
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                <a href="{% url 'obat:delete_obat' obat.id %}" class="btn btn-danger">Yakin</a>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Batal</button>
+                <a href="{% url 'obat:delete_obat' obat.id %}" class="btn btn-danger">Hapus</a>
               </div>
+              
             </div>
           </div>
         </div>
