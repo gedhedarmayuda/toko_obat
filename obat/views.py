@@ -47,7 +47,7 @@ def update_obat(request, kode_obat):
 
 
 def delete_obat(request, kode_obat):
-    obats = Obat.objects.filter(kode_obat=kode_obat)
+    obats = Obat.objects.filter(id=kode_obat)
     obats.delete()
     messages.success(request, "Data terhapus")
-    return render(request, 'obat/tampil_obat.html')
+    return render(request, 'obat/list_obat.html')
