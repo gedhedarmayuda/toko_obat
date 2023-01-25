@@ -52,7 +52,7 @@ def delete_karyawan(request, no_karyawan):
     karyawans = Karyawan.objects.filter(id=no_karyawan)
     karyawans.delete()
     messages.success(request, "Data terhapus")
-    return render(request, 'karyawan/list_karyawan.html')
+    return redirect('karyawan:karyawan_list')
 
 # Jabatan
 
@@ -102,4 +102,4 @@ def delete_jabatan(request, id):
     jabatans = Karyawan.objects.filter(id=id)
     jabatans.delete()
     messages.success(request, "Data terhapus")
-    return render(request, 'jabatan/list_jabatan.html')
+    return redirect('karyawan:jabatan_list')

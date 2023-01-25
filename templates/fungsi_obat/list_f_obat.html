@@ -12,18 +12,20 @@
   <table class="table table-striped table-fixed" id="data">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">Jabatan</th>
+        <th scope="col">Fungsi Obat</th>
+        <th scope="col">Keterangan</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody id="myTable">
-      {% for Jabatan in jabatans %}
+      {% for Fungsi_Obat in f_obats %}
       <tr>
-        <td><a href="{% url 'karyawan:jabatan_update' Jabatan.id %}">{{ Jabatan.jabatan }}</td>
-        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#hapus-{{Jabatan.id}}">
+        <td><a href="{% url 'obat:update_f_obat' Fungsi_Obat.id %}">{{ Fungsi_Obat.fungsi_obat }}</td>
+        <td>{{ Fungsi_Obat.keterangan }}</td>
+        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#hapus-{{Fungsi_Obat.id}}">
           Hapus
         </button></td>
-        <div class="modal" id="hapus-{{Jabatan.id}}">
+        <div class="modal" id="hapus-{{Fungsi_Obat.id}}">
           <div class="modal-dialog">
             <div class="modal-content">
             
@@ -35,13 +37,13 @@
               
               <!-- Modal body -->
               <div class="modal-body">
-                Nama Jabatan : {{Jabatan.jabatan}}
+                Nama Fungsi Obat : {{Fungsi_Obat.fungsi_obat}}
               </div>
               
               <!-- Modal footer -->
               <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Batal</button>
-                <a href="{% url 'karyawan:jabatan_delete' Jabatan.id %}" class="btn btn-danger">Hapus</a>
+                <a href="{% url 'obat:delete_f_obat' Fungsi_Obat.id %}" class="btn btn-danger">Hapus</a>
               </div>
             </div>
           </div>

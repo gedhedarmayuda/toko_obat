@@ -16,10 +16,11 @@ class FormObat(ModelForm):
             'jenis_obat_id': forms.Select({'class': 'form-control'}),
         }
 
-class FormFObat(ModelForm):
-    model = Fungsi_Obat
-    fields = "__all__"
-    widgets = {
-        'fungsi_obat': forms.TextInput({'class': 'form-control'}),
-        'keterangan': forms.TextInput({'class': 'form-control'}),
-    }
+class FormFungsi(ModelForm):
+    class Meta:
+        model = Fungsi_Obat
+        fields = "__all__"
+        widgets = {
+            'fungsi_obat': forms.TextInput({'class': 'form-control'}),
+            'keterangan': forms.TextInput({'class': 'form-control'}),
+            }
