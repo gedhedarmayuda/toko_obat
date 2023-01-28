@@ -88,7 +88,7 @@ def update_jabatan(request, no_jabatan):
         if form.is_valid():
             form.save()
             messages.success(request, 'Data berhasil diubah')
-            return redirect('karyawan:update_jabatan', no_jabatan=no_jabatan)
+            return redirect('karyawan:jabatan_update', no_jabatan=no_jabatan)
     else:
         form = FormJabatan(instance=jabatans)
         jabatan = {
@@ -98,8 +98,8 @@ def update_jabatan(request, no_jabatan):
         return render(request, 'jabatan/edit_jabatan.html', jabatan)
 
 
-def delete_jabatan(request, id):
-    jabatans = Karyawan.objects.filter(id=id)
+def delete_jabatan(request, no_jabatan):
+    jabatans = Jabatan.objects.filter(id=no_jabatan)
     jabatans.delete()
     messages.success(request, "Data terhapus")
     return redirect('karyawan:jabatan_list')
