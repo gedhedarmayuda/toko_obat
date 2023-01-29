@@ -72,7 +72,7 @@ def create_jabatan(request):
         form = FormJabatan()
         jabatan = {
             'form': form
-            }
+        }
         return render(request, 'jabatan/tambah_jabatan.html', jabatan)
 
 
